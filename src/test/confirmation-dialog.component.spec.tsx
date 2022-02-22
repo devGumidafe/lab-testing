@@ -32,12 +32,11 @@ describe('common/components/confirmation-dialog/confirmation-dialog.component.ts
     expect(closeButton).toBeInTheDocument();
   });
 
-
-  it('should closed dialog when it click on "Cancelar" ', () => {
+  it('should call "onClose" when click button "Cancelar"', () => {
     //Arr
     const props = {
       isOpen: true,
-      onAccept: () => {},
+      onAccept: jest.fn(),
       onClose: jest.fn(),
       title: 'Title',
       labels: {
@@ -55,15 +54,15 @@ describe('common/components/confirmation-dialog/confirmation-dialog.component.ts
 
     //Assert
     expect(props.onClose).toHaveBeenCalled();
+    expect(props.onClose).toHaveBeenCalledTimes(1);
   });
 
-
-  it('should closed dialog when it click on "Aceptar" ', () => {
+  it('should call "onAccept" when click button "Aceptar"', () => {
     //Arr
     const props = {
       isOpen: true,
       onAccept: jest.fn(),
-      onClose: () => {},
+      onClose: jest.fn(),
       title: 'Title',
       labels: {
         closeButton: 'Cancelar',
@@ -80,8 +79,8 @@ describe('common/components/confirmation-dialog/confirmation-dialog.component.ts
 
     //Assert
     expect(props.onAccept).toHaveBeenCalled();
+    expect(props.onAccept).toHaveBeenCalledTimes(1);
   });
-
 
   it('Snapshot component', () => {
     //Arr
@@ -102,6 +101,5 @@ describe('common/components/confirmation-dialog/confirmation-dialog.component.ts
 
     //Assert
     expect(dialog).toMatchSnapshot();
-  }
-  );
+  });
 });
