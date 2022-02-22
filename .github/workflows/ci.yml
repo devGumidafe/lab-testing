@@ -1,0 +1,14 @@
+name: Unit Tests (CI)
+
+on: pull_request
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install
+        uses: npm install
+      - name: Run tests
+        run: npm run test
