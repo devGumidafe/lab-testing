@@ -1,4 +1,4 @@
-name: Unit Tests
+name: Ci workflow
 
 on: pull_request
 
@@ -9,6 +9,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Install
-        uses: npm install
-      - name: Run tests
+        run: npm install
+      - name: Tests
         run: npm test
