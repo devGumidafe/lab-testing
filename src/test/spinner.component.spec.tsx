@@ -1,9 +1,9 @@
+import React from 'react';
 import { act, render, screen } from '@testing-library/react';
 import { SpinnerComponent } from 'common/components';
-import React from 'react';
 import { trackPromise } from 'react-promise-tracker';
 
-const customPromise = ({ delay = 100, willResolve = true } = {}) => {
+const customPromise = ({ delay = 1000, willResolve = true } = {}) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       if (willResolve) resolve('promise resolved');
